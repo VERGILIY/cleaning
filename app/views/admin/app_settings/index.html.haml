@@ -1,0 +1,23 @@
+%h1.page-header Настройки
+
+= simple_form_for :app_settings, url: upgrade_admin_app_settings_path do |f|
+  = f.error_notification
+
+  %h3 Настройки по-умолчанию / Для главной страницы
+
+  = f.simple_fields_for :main, OpenStruct.new(AppSettings.main) do |ff|
+    = ff.simple_fields_for :meta, OpenStruct.new(ff.object.meta || {}) do |fff|
+      = fff.input :title
+      = fff.input :keywords, as: :text
+      = fff.input :description, as: :text
+    = ff.input :content, as: :ckeditor
+
+  %h3 Настройки для страницы запроса обратного звонка
+
+  = f.simple_fields_for :call_request, OpenStruct.new(AppSettings.call_request) do |ff|
+    = ff.simple_fields_for :meta, OpenStruct.new(ff.object.meta || {}) do |fff|
+      = fff.input :title
+      = fff.input :keywords, as: :text
+      = fff.input :description, as: :text
+
+  = f.button :submit, 'Сохранить'
