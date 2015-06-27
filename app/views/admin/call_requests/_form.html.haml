@@ -1,0 +1,10 @@
+= simple_form_for [:admin, @call_request] do |f|
+  = f.error_notification
+
+  = f.input :fname
+  = f.input :mname
+  = f.input :lname
+  = f.input :phone
+  = f.input :processed
+
+  = f.button :submit

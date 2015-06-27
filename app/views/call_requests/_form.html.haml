@@ -1,0 +1,15 @@
+= simple_form_for @call_request, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
+  = f.error_notification
+
+  = f.input :fname
+  = f.input :lname
+  = f.input :mname
+  = f.input :phone, input_html: { class: 'input-lg phone' }
+
+
+  %span.help-block.text-right
+    %b
+      %abbr.text-danger{ title: 'Обязательное поле' } *
+    Поля обязательные для заполнения
+
+  = f.button :submit, value: 'Отправить заявку'

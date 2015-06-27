@@ -7,17 +7,17 @@
   -#  %li{ class: "#{'active' if controller_name == 'calculators' }" }
   -#    = link_to admin_calculators_path do
   -#      Калькуляторы
-  -#%ul.nav.nav-sidebar
+  %ul.nav.nav-sidebar
+    %li{ class: "#{'active' if controller_name == 'call_requests' }" }
+      = link_to admin_call_requests_path do
+        Запросы звонков
+        %span.badge
+          = CallRequest.unprocessed.count
   -#  %li{ class: "#{'active' if controller_name == 'loan_requests' }" }
   -#    = link_to admin_loan_requests_path do
   -#      Заявки займов
   -#      %span.badge
   -#        = LoanRequest.unprocessed.count
-  -#  %li{ class: "#{'active' if controller_name == 'call_requests' }" }
-  -#    = link_to admin_call_requests_path do
-  -#      Запросы звонков
-  -#      %span.badge
-  -#        = CallRequest.unprocessed.count
   -#%ul.nav.nav-sidebar
   -#  %li{ class: "#{'active' if controller_name == 'loans' }" }
   -#    = link_to admin_loans_path do

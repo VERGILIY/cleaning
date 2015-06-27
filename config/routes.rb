@@ -12,5 +12,11 @@ Rails.application.routes.draw do
         post :upgrade
       end
     end
+
+    resources :call_requests, except: [:new, :create] do
+      member do
+        post :mark_as_processed
+      end
+    end
   end
 end

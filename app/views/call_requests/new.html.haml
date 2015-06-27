@@ -1,0 +1,12 @@
+- content_for :title do
+  = AppSettings.call_request[:meta][:title]
+
+- content_for :keywords do
+  = AppSettings.call_request[:meta][:keywords]
+
+- content_for :description do
+  = AppSettings.call_request[:meta][:description]
+
+%h1.page-header Заказать обратный звонок
+
+= render 'form'

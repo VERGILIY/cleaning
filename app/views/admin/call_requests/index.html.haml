@@ -1,0 +1,33 @@
+%h1.page-header Запросы обратного звонка
+
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th #
+        %th Телефон
+        %th ФИО
+        %th Обработан?
+        %th
+    %tbody
+      - @call_requests.each do |call_request|
+        %tr
+          %td= call_request.id
+          %td= link_to content_tag(:b, call_request.phone), [:admin, call_request]
+          %td
+            %b.text-info
+              = "#{call_request.fname} #{call_request.mname} #{call_request.lname}".strip
+          %td
+            - if call_request.processed?
+              %span.text-success.glyphicon.glyphicon-ok{ aria: { hidden: true } }
+            - else
+              %span.text-info.glyphicon.glyphicon-remove{ aria: { hidden: true } }
+          %td
+            - if call_request.unprocessed?
+              = link_to [:mark_as_processed, :admin, call_request], title: 'Пометить как обработанный', method: :post do
+                %span.text-success.glyphicon.glyphicon-check{ aria: { hidden: true } }
+            = link_to [:edit, :admin, call_request], title: 'Редактировать' do
+              %span.text-warning.glyphicon.glyphicon-edit{ aria: { hidden: true } }
+            = link_to [:admin, call_request], method: :delete, data: { confirm: 'Вы уверены?' }, title: 'Удалить' do
+              %span.text-danger.glyphicon.glyphicon-trash{ aria: { hidden: true } }
+= paginate @call_requests
