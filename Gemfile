@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.2'
@@ -12,7 +12,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+# gem 'therubyracer', platforms: :ruby # DON'T USE IT. INSTALL nodejs: sudo apt-get install nodejs
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -41,5 +41,21 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'haml-rails'
+  gem 'quiet_assets'
 end
 
+gem 'haml'
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+gem 'simple_form'
+gem 'friendly_id'
+gem 'babosa'
+gem 'rails-i18n'
+gem 'ckeditor'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'rails-settings-cached'
+gem 'underscore-rails'
+gem 'kaminari'
