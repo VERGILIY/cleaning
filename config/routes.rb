@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :call_requests, only: [:new, :create]
   resources :news, only: [:index, :show]
+  resources :pages, only: [:show]
 
   namespace :admin do
     root 'news#index'
@@ -18,6 +19,13 @@ Rails.application.routes.draw do
     resources :call_requests, except: [:new, :create] do
       member do
         post :mark_as_processed
+      end
+    end
+
+    resources :pages do
+      collection do
+        # required for Sortable GUI server side actions
+        post :rebuild
       end
     end
 

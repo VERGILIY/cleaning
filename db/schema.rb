@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150627200438) do
+ActiveRecord::Schema.define(version: 20150627213207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,27 @@ ActiveRecord::Schema.define(version: 20150627200438) do
   end
 
   add_index "news", ["slug"], name: "index_news_on_slug", unique: true, using: :btree
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "title",                          null: false
+    t.string   "slug"
+    t.text     "content"
+    t.hstore   "meta"
+    t.boolean  "topmenu",        default: false
+    t.boolean  "submenu",        default: false
+    t.integer  "parent_id"
+    t.integer  "lft",                            null: false
+    t.integer  "rgt",                            null: false
+    t.integer  "depth",          default: 0,     null: false
+    t.integer  "children_count", default: 0,     null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  add_index "pages", ["lft"], name: "index_pages_on_lft", using: :btree
+  add_index "pages", ["parent_id"], name: "index_pages_on_parent_id", using: :btree
+  add_index "pages", ["rgt"], name: "index_pages_on_rgt", using: :btree
+  add_index "pages", ["slug"], name: "index_pages_on_slug", unique: true, using: :btree
 
   create_table "settings", force: :cascade do |t|
     t.string   "var",                   null: false

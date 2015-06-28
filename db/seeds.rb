@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Page.create!(title: 'В верхнее меню', topmenu: true)
+Page.create!(title: 'В нижнее меню', submenu: true)

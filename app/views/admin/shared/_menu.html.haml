@@ -3,10 +3,9 @@
     %li{ class: "#{'active' if controller_name == 'news' }" }
       = link_to admin_news_index_path do
         Новости
-  -#  %li{ class: "#{'active' if controller_name == 'pages' }" }
-  -#    = link_to admin_pages_path do
-  -#      Страницы
-  -#      -#%span.sr-only (current)
+    %li{ class: "#{'active' if controller_name == 'pages' }" }
+      = link_to admin_pages_path do
+        Страницы
   %ul.nav.nav-sidebar
     %li{ class: "#{'active' if controller_name == 'call_requests' }" }
       = link_to admin_call_requests_path do

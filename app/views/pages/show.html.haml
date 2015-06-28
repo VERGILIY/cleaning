@@ -1,0 +1,13 @@
+- content_for :title do
+  = @page.meta[:title]
+
+- content_for :keywords do
+  = @page.meta[:keywords]
+
+- content_for :description do
+  = @page.meta[:description]
+
+%h1.page-header
+  = @page.title
+
+= @page.content.html_safe

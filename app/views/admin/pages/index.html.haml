@@ -1,0 +1,6 @@
+%h1.page-header Страницы
+
+%ol.sortable_tree{ data: { max_levels: 5, rebuild_url: rebuild_admin_pages_url } }
+  = sortable_tree @pages
+
+= link_to 'Добавить', [:new, :admin, :page], class: 'btn btn-default'
