@@ -1,15 +1,15 @@
 ru:
   simple_form:
-    "yes": 'Yes'
-    "no": 'No'
+    "yes": 'Да'
+    "no": 'Нет'
     required:
-      text: 'required'
+      text: 'обязательное поле'
       mark: '*'
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "Please review the problems below:"
+      default_message: "Пожалуйста, исправьте возникшие ошибки:"
     # Examples
     # labels:
     #   defaults:
@@ -29,3 +29,6 @@ ru:
     # prompts:
     #   defaults:
     #     age: 'Select your age'
+    labels:
+      defaults:
+        content: Содержимое

@@ -1,0 +1,17 @@
+ru:
+  activerecord:
+    models:
+      call_request: Запрос звонка
+    attributes:
+      page:
+        title: Заголовок
+        slug: Слаг для URL
+        in_menu: Поместить в меню?
+        payment_method: Способ оплаты?
+        content: Содержимое
+      call_request:
+        fname: Имя
+        lname: Фамилия
+        mname: Отчество
+        phone: Номер телефона
+        processed: Пометить как обработанный?

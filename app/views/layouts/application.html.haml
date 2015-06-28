@@ -26,6 +26,8 @@
 
   %body
     .container
+      = render 'shared/topmenu'
       = render 'shared/header'
       = render 'shared/submenu'
+      = render 'shared/flashes'
       = yield
