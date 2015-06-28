@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150627175915) do
+ActiveRecord::Schema.define(version: 20150627200438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "call_requests", force: :cascade do |t|
     t.string   "fname"
@@ -55,6 +56,18 @@ ActiveRecord::Schema.define(version: 20150627175915) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "news", force: :cascade do |t|
+    t.string   "title",                      null: false
+    t.string   "slug"
+    t.text     "content"
+    t.hstore   "meta"
+    t.boolean  "published",  default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "news", ["slug"], name: "index_news_on_slug", unique: true, using: :btree
 
   create_table "settings", force: :cascade do |t|
     t.string   "var",                   null: false

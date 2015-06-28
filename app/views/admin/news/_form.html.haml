@@ -1,0 +1,13 @@
+= simple_form_for [:admin, @news] do |f|
+  = f.error_notification
+
+  = f.input :title
+  = f.input :slug
+  = f.simple_fields_for :meta, OpenStruct.new(f.object.meta || {}) do |ff|
+    = ff.input :title
+    = ff.input :keywords, as: :text
+    = ff.input :description, as: :text
+  = f.input :content, as: :ckeditor
+  = f.input :published
+
+  = f.button :submit

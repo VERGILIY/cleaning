@@ -1,2 +1,3 @@
-= render 'shared/carousel'
+%h1.page-header Новости
 = render partial: 'news/news', collection: @news
+= paginate @news

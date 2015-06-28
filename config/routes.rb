@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
+
   root 'welcome#index'
 
   resources :call_requests, only: [:new, :create]
+  resources :news, only: [:index, :show]
 
   namespace :admin do
     root 'news#index'
@@ -18,5 +20,7 @@ Rails.application.routes.draw do
         post :mark_as_processed
       end
     end
+
+    resources :news
   end
 end

@@ -1,0 +1,13 @@
+- content_for :title do
+  = @news.meta[:title]
+
+- content_for :keywords do
+  = @news.meta[:keywords]
+
+- content_for :description do
+  = @news.meta[:description]
+
+%h1.page-header
+  = @news.title
+
+= @news.content.html_safe

@@ -2,6 +2,8 @@ ru:
   activerecord:
     models:
       call_request: Запрос звонка
+      news: Новость
+      page: Страница
     attributes:
       page:
         title: Заголовок
@@ -15,3 +17,8 @@ ru:
         mname: Отчество
         phone: Номер телефона
         processed: Пометить как обработанный?
+      news:
+        title: Заголовок
+        slug: Слаг для URL
+        published: Опубликована?
+        content: Содержимое

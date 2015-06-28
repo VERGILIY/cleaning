@@ -1,0 +1,31 @@
+%h1.page-header Новости
+
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th #
+        %th Заголовок
+        %th Опубликована?
+        %th Дата
+        %th
+
+    %tbody
+      - @news.each do |news|
+        %tr
+          %td= news.id
+          %td
+            %b= link_to news.title, [:admin, news]
+          %td
+            - if news.published?
+              %span.text-success.glyphicon.glyphicon-ok{ aria: { hidden: true } }
+            - else
+              %span.text-info.glyphicon.glyphicon-remove{ aria: { hidden: true } }
+          %td= news.created_at.to_s(:short)
+          %td
+            = link_to [:edit, :admin, news], title: 'Редактировать' do
+              %span.text-warning.glyphicon.glyphicon-edit{ aria: { hidden: true } }
+            = link_to [:admin, news], method: :delete, data: { confirm: 'Вы уверены?' }, title: 'Удалить' do
+              %span.text-danger.glyphicon.glyphicon-trash{ aria: { hidden: true } }
+= paginate @news
+= link_to 'Добавить', [:new, :admin, :news], class: 'btn btn-default'
