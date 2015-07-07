@@ -1,5 +1,5 @@
 body {
-  padding: 20px 0 20px 0;
+  padding: 4px 0 4px 0;
 }
 
 @media (min-width: 768px) {
@@ -7,12 +7,13 @@ body {
     max-width: 1000px;
   }
 }
-.navbar.submenu {
-  margin-bottom: 0;
-}
 
 .alert-dismissible {
   margin-top: 20px;;
+}
+
+.row.header h2 {
+  margin-top: 10px;
 }
 ///* GLOBAL STYLES
 //-------------------------------------------------- */

@@ -1,12 +1,22 @@
-.row
+.row.header
   .col-md-4
     = link_to root_path do
-      = image_tag 'http://mackenzie.bc.libraries.coop/files/2014/08/Lego.jpg', height: 100
+      = image_tag '//mackenzie.bc.libraries.coop/files/2014/08/Lego.jpg', height: 100
   .col-md-5
-    Режим работы:
-    пн-пт с 9 до 18
-    Без обеда
+    %h5.text-right
+      %small
+        Адрес:
+      г. Красноярск, ул. Телевизорная 1, стр. 99
+    %h5.text-right
+      %small
+        Режим работы:
+      пн-пт с 9:00 до 17:00 (без обеда)
   .col-md-3
-    %h3
-      %b 2-234-344
-    = link_to 'Обратный звонок', new_call_request_path, class: 'btn btn-danger btn-lg btn-block'
+    .row
+      .col-md-12
+        %h2.text-right
+          %small тел.
+          %b 218-00-73
+    .row
+      .col-md-12
+        = link_to 'Обратный звонок', new_call_request_path, class: 'btn btn-danger btn-lg btn-block'

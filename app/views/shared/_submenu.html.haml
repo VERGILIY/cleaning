@@ -1,41 +1,26 @@
-%nav.navbar.submenu.navbar-default.navbar-static-top
+#submenu.navbar.navbar-default.navbar-static-top{role: 'navigation'}
   .container-fluid
-    / Brand and toggle get grouped for better mobile display
-    -#.navbar-header
-      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+    .navbar-header
+      %button.navbar-toggle{data: {target: '.navbar-menubuilder', toggle: 'collapse'}, type: 'button'}
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-    / Collect the nav links, forms, and other content for toggling
-    #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      %ul.nav.navbar-nav
-        %li.active
-          %a{:href => "#"}
-            Link
-            %span.sr-only (current)
-        %li
-          %a{:href => "#"} Link
-        %li.dropdown
-          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            Dropdown
-            %span.caret
-          %ul.dropdown-menu
+    .collapse.navbar-collapse.navbar-menubuilder
+      %ul.nav.navbar-nav.navbar-left
+        - Page.submenu.last.children.each do |page|
+          - if page.children.count == 0
             %li
-              %a{:href => "#"} Action
-            %li
-              %a{:href => "#"} Another action
-            %li
-              %a{:href => "#"} Something else here
-            %li.divider{:role => "separator"}
-            %li
-              %a{:href => "#"} Separated link
-            %li.divider{:role => "separator"}
-            %li
-              %a{:href => "#"} One more separated link
+              = link_to page.title, page
+          - else
+            %li.dropdown
+              %a.dropdown-toggle{aria: {expanded: false, haspopup: true}, data: {toggle: 'dropdown'}, href: '#', role: 'button'}
+                = page.title
+                %span.caret
+              = render partial: 'shared/dropdown', locals: { item: page }
 
-      %form.navbar-form.navbar-right{:role => "search"}
+      %form.navbar-form.navbar-right{role: 'search'}
         .form-group
-          %input.form-control{:placeholder => "Поиск", :type => "text"}/
-        %button.btn.btn-default{:type => "submit"}
+          %input.form-control{placeholder: 'Поиск', type: 'text'}
+        %button.btn.btn-default{type: 'submit'}
           %span.glyphicon.glyphicon-search{aria: {hidden:true}}

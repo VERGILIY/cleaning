@@ -1,0 +1,37 @@
+#topmenu.navbar-default {
+  margin-bottom: 4px;
+  .navbar-brand {
+    color: rgba(219, 219, 219, 1);
+  }
+  font-size: 18px;
+  background-color: rgba(30, 148, 245, 1);//rgba(59, 127, 245, 1);
+  border-width: 1px;
+  border-radius: 4px;
+  .navbar-nav > {
+    li > a {
+      color: rgba(219, 219, 219, 1);
+      background-color: rgba(30, 148, 245, 1);//rgba(59, 127, 245, 1);
+      &:hover, &:focus {
+        color: rgba(219, 219, 219, 1);
+        background-color: rgba(61, 61, 61, 1);
+      }
+    }
+    .active > a {
+      color: rgba(219, 219, 219, 1);
+      background-color: rgba(49, 110, 224, 1);
+      &:hover, &:focus {
+        color: rgba(219, 219, 219, 1);
+        background-color: rgba(49, 110, 224, 1);
+      }
+    }
+  }
+  .navbar-toggle {
+    border-color: #316ee0;
+    &:hover, &:focus, .icon-bar {
+      background-color: #316ee0;
+    }
+    &:hover .icon-bar, &:focus .icon-bar {
+      background-color: #3b7ff5;
+    }
+  }
+}
