@@ -6,6 +6,9 @@
     %li{ class: "#{'active' if controller_name == 'pages' }" }
       = link_to admin_pages_path do
         Страницы
+    %li{ class: "#{'active' if controller_name == 'slides' }" }
+      = link_to admin_slides_path do
+        Слайды
   %ul.nav.nav-sidebar
     %li{ class: "#{'active' if controller_name == 'call_requests' }" }
       = link_to admin_call_requests_path do

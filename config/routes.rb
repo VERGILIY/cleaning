@@ -30,5 +30,8 @@ Rails.application.routes.draw do
     end
 
     resources :news
+    resources :slides do
+      post :update_position, on: :collection
+    end
   end
 end

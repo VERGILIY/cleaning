@@ -1,0 +1,9 @@
+= simple_form_for [:admin, @slide] do |f|
+  = f.error_notification
+
+  = f.input :title
+  = f.input :page_id, collection: Page.all
+  = f.input :slide, as: :file
+  = f.input :default
+
+  = f.button :submit

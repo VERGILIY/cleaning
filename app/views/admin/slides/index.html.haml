@@ -1,0 +1,30 @@
+%h1.page-header Слайды
+
+.table-responsive
+  %table.table.table-striped#sortable
+    %thead
+      %tr
+        %th #
+        %th Заголовок
+        %th По умолчанию?
+        %th Картинка
+        %th
+
+    %tbody
+      - @slides.each do |slide|
+        %tr.item{ data: { item: { id: slide.id } } }
+          %td= slide.id
+          %td
+            %b= link_to [slide.title, slide.page.try(:title)].compact.join(' + '), slide.page ? [:admin, slide.page] : [:edit, :admin, slide]
+          %td
+            - if slide.default?
+              %span.text-success.glyphicon.glyphicon-ok{ aria: { hidden: true } }
+            - else
+              %span.text-info.glyphicon.glyphicon-remove{ aria: { hidden: true } }
+          %td= image_tag slide.slide_url(:thumb), height: 50
+          %td
+            = link_to [:edit, :admin, slide], title: 'Редактировать' do
+              %span.text-warning.glyphicon.glyphicon-edit{ aria: { hidden: true } }
+            = link_to [:admin, slide], method: :delete, data: { confirm: 'Вы уверены?' }, title: 'Удалить' do
+              %span.text-danger.glyphicon.glyphicon-trash{ aria: { hidden: true } }
+= link_to 'Добавить', [:new, :admin, :slide], class: 'btn btn-default'
