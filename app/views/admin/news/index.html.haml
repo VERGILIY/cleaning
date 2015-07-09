@@ -23,6 +23,9 @@
               %span.text-info.glyphicon.glyphicon-remove{ aria: { hidden: true } }
           %td= news.created_at.to_s(:short)
           %td
+            - unless news.published?
+              = link_to [:publish, :admin, news], title: 'Опубликовать', method: :post do
+                %span.text-success.glyphicon.glyphicon-check{ aria: { hidden: true } }
             = link_to [:edit, :admin, news], title: 'Редактировать' do
               %span.text-warning.glyphicon.glyphicon-edit{ aria: { hidden: true } }
             = link_to [:admin, news], method: :delete, data: { confirm: 'Вы уверены?' }, title: 'Удалить' do

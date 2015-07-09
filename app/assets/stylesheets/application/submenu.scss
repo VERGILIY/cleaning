@@ -1,33 +1,33 @@
 #submenu.navbar-default {
   margin: 4px 0 0 0;
   .navbar-brand {
-    color: rgba(219, 219, 219, 1);
+    color: #dbdbdb;
   }
   font-size: 14px;
-  background-color: rgba(30, 148, 245, 1);
+  background-color: darken(#428bca, 6.5%);
   border-bottom-width: 1px;
   .navbar-nav > {
     li > a {
-      color: rgba(219, 219, 219, 1);
-      background-color: rgba(30, 148, 245, 1);
+      color: #dbdbdb;
+      background-color: darken(#428bca, 6.5%);
       &:hover, &:focus {
-        color: rgba(219, 219, 219, 1);
-        background-color: rgba(0, 88, 171, 1);
+        color: #dbdbdb;
+        background-color: #23527c;//rgba(0, 88, 171, 1);
       }
     }
     .active > a {
-      color: rgba(219, 219, 219, 1);
+      color: #dbdbdb;
       background-color: rgba(3, 131, 217, 1);
       &:hover, &:focus {
-        color: rgba(219, 219, 219, 1);
+        color: #dbdbdb;
         background-color: rgba(3, 131, 217, 1);
       }
     }
   }
   .navbar-toggle {
-    border-color: #0383d9;
+    border-color: #dbdbdb;
     &:hover, &:focus, .icon-bar {
-      background-color: #0383d9;
+      background-color: #dbdbdb;
     }
     &:hover .icon-bar, &:focus .icon-bar {
       background-color: #1e94f5;

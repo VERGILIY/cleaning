@@ -1,5 +1,5 @@
 class Admin::NewsController < Admin::BaseController
-  before_action :set_news, only: [:show, :edit, :update, :destroy]
+  before_action :set_news, only: [:show, :edit, :update, :destroy, :publish]
 
   def index
     @news = News.order(created_at: :desc).page params[:page]
@@ -49,6 +49,14 @@ class Admin::NewsController < Admin::BaseController
     end
   end
 
+  def publish
+    @news.publish!
+    respond_to do |format|
+      format.html { redirect_to admin_news_index_path, notice: 'Новость была успешно опубликована.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_news
@@ -57,6 +65,6 @@ class Admin::NewsController < Admin::BaseController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def news_params
-    params.require(:news).permit(:title, :slug, :content, :published, meta: [ :title, :keywords, :description ])
+    params.require(:news).permit(:title, :slug, :content, :published, :cover, meta: [ :title, :keywords, :description ])
   end
 end

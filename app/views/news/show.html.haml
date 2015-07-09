@@ -10,4 +10,13 @@
 %h1.page-header
   = @news.title
 
-= @news.content.html_safe
+.media
+  - if @news.cover_url
+    .media-left
+      = link_to @news do
+        = image_tag @news.cover_url(:thumb), class: 'media-object thumbnail', alt: @news.title, width: 150
+  .media-body
+    = @news.content.html_safe
+
+  %small.text-right
+    = @news.created_at.strftime('%d.%m.%Y')

@@ -29,7 +29,11 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :news
+    resources :news do
+      member do
+        post :publish
+      end
+    end
     resources :slides do
       post :update_position, on: :collection
     end

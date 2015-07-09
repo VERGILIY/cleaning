@@ -4,6 +4,7 @@ ru:
       call_request: Запрос звонка
       news: Новость
       page: Страница
+      slide: Слайд
     attributes:
       page:
         title: Заголовок
@@ -22,3 +23,9 @@ ru:
         slug: Слаг для URL
         published: Опубликована?
         content: Содержимое
+        cover: Картинка новости
+      slide:
+        title: Заголовок
+        page_id: Страница
+        slide: Картинка слайда
+        default: Главный слайд?

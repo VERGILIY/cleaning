@@ -1,3 +1,13 @@
-%h2
-  = link_to news.title, news
-= truncate(news.content, length: 300, escape: false)
+.media
+  - if news.cover_url
+    .media-left
+      = link_to news do
+        = image_tag news.cover_url(:thumb), class: 'media-object thumbnail', alt: news.title, width: 150
+  .media-body
+    %h4.media-heading
+      = link_to news.title, news
+      %small
+        = news.created_at.strftime('%d.%m.%Y')
+    = truncate(news.content, length: 200, escape: false)
+    = link_to 'Читать далее', news
+  %hr

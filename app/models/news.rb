@@ -1,6 +1,8 @@
 class News < ActiveRecord::Base
   extend FriendlyId
 
+  mount_uploader :cover, CoverUploader
+
   friendly_id :title, use: :slugged
 
   # == VALIDATORS
@@ -8,6 +10,10 @@ class News < ActiveRecord::Base
 
   # == SCOPES
   scope :published, -> { where(published: true) }
+
+  def publish!
+    update_attributes published: true
+  end
 
   def should_generate_new_friendly_id?
     slug.blank? # || title_changed?
