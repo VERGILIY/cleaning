@@ -33,7 +33,7 @@ class SlideUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_to_fill => [1000, 300]
+    process :resize_to_fill => [720, 280]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
