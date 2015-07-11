@@ -1,0 +1,13 @@
+.media
+  - if faq.cover_url
+    .media-left
+      = link_to faq do
+        = image_tag faq.cover_url(:thumb), class: 'media-object thumbnail', alt: faq.title, width: 150
+  .media-body
+    %h4.media-heading
+      = link_to faq.title, faq
+      %small
+        = faq.created_at.strftime('%d.%m.%Y')
+    = truncate(faq.content, length: 200, escape: false)
+    = link_to 'Читать далее', faq
+  %hr

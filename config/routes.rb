@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :call_requests, only: [:new, :create]
   resources :news, only: [:index, :show]
+  resources :faqs, only: [:index, :show]
   resources :pages, only: [:show]
 
   namespace :admin do
@@ -34,6 +35,7 @@ Rails.application.routes.draw do
         post :publish
       end
     end
+    resources :faqs
     resources :slides do
       post :update_position, on: :collection
     end

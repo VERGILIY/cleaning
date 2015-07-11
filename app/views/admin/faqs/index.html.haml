@@ -1,0 +1,34 @@
+%h1.page-header Полезная информация
+
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th #
+        %th Заголовок
+        -#%th Опубликована?
+        %th Дата
+        %th
+
+    %tbody
+      - @faqs.each do |faq|
+        %tr
+          %td= faq.id
+          %td
+            %b= link_to faq.title, [:admin, faq]
+          -#%td
+            - if faq.published?
+              %span.text-success.glyphicon.glyphicon-ok{ aria: { hidden: true } }
+            - else
+              %span.text-info.glyphicon.glyphicon-remove{ aria: { hidden: true } }
+          %td= faq.created_at.to_s(:short)
+          %td
+            -#- unless faq.published?
+              = link_to [:publish, :admin, faq], title: 'Опубликовать', method: :post do
+                %span.text-success.glyphicon.glyphicon-check{ aria: { hidden: true } }
+            = link_to [:edit, :admin, faq], title: 'Редактировать' do
+              %span.text-warning.glyphicon.glyphicon-edit{ aria: { hidden: true } }
+            = link_to [:admin, faq], method: :delete, data: { confirm: 'Вы уверены?' }, title: 'Удалить' do
+              %span.text-danger.glyphicon.glyphicon-trash{ aria: { hidden: true } }
+= paginate @faqs
+= link_to 'Добавить', [:new, :admin, :faq], class: 'btn btn-default'

@@ -1,0 +1,22 @@
+- content_for :title do
+  = @faq.meta[:title]
+
+- content_for :keywords do
+  = @faq.meta[:keywords]
+
+- content_for :description do
+  = @faq.meta[:description]
+
+%h1.page-header
+  = @faq.title
+
+.media
+  - if @faq.cover_url
+    .media-left
+      = link_to @faq do
+        = image_tag @faq.cover_url(:thumb), class: 'media-object thumbnail', alt: @faq.title, width: 150
+  .media-body
+    = @faq.content.html_safe
+
+  %small.text-right
+    = @faq.created_at.strftime('%d.%m.%Y')

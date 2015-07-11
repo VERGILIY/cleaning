@@ -9,10 +9,10 @@
       = link_to 'Новости', news_index_path
     = render partial: 'news/news', collection: @news
 
-  -#.col-md-6
+  .col-md-6
     %h3.page-header
-      = link_to 'Полезная информация', news_index_path
-    = render partial: 'news/news', collection: @news
+      = link_to 'Полезная информация', faqs_path
+    = render partial: 'faqs/faq', collection: @faqs
 .row
   .col-md-offset-4.col-md-4
     = link_to 'Заказать обратный звонок', new_call_request_path, class: 'btn btn-danger btn-lg btn-block'

@@ -5,6 +5,7 @@ ru:
       news: Новость
       page: Страница
       slide: Слайд
+      faq: Полезная информация
     attributes:
       page:
         title: Заголовок
@@ -24,6 +25,8 @@ ru:
         published: Опубликована?
         content: Содержимое
         cover: Картинка новости
+      faq:
+        cover: Картинка информации
       slide:
         title: Заголовок
         page_id: Страница
